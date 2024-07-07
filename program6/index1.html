@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square and cubes</title>
+</head>
+<body onload="sc()">
+    <script>
+        function sc()
+        {
+            rng=prompt("Enter the range");
+            res=rng.split("-");
+            if(res.length!=2) alert("invalid range");
+            first = parseInt(res[0]);
+            second = parseInt(res[1]);
+            if(first>second) alert("invalid range");
+            str = "<table border=2> <tr><th> Number </th> <th> Sqaure</th><th>Cube</th></tr>";
+            for(i=first;i<=second;i++)
+            {
+                str+= "<tr><td>"+i+"</td><td>"+(i*i)+"</td><td>"+(i*i*i)+"</td>";
+
+            }
+
+            document.write(str);
+            
+        }
+    </script>
+</body>
+</html>

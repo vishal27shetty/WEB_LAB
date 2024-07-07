@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text growing and shrinking</title>
+    <script>
+        var grow = true;
+        
+        function fnts() {
+            var fntsize = document.getElementById("p1").style.fontSize;
+            document.getElementById("p1").style.color = "red";
+            var ifntsize = parseInt(fntsize);
+            window.setTimeout(fntGS, 100, ifntsize);
+        }
+        
+        function fntGS(ifs) {
+            if (grow) {
+                ifs = ifs + 1;
+                if (ifs <= 50) {
+                    document.getElementById("p1").style.fontSize = ifs + "pt";
+                } else {
+                    grow = false;
+                    document.getElementById("p1").style.color = "blue";
+                    document.getElementById("p1").innerHTML = "TEXT-SHRINKING";
+                }
+            } else {
+                ifs = ifs - 1;
+                if (ifs < 5) 
+                document.getElementById("p1").style.fontSize = ifs + "pt";
+            }
+            window.setTimeout(fntGS, 100, ifs);
+        }
+        </script>
+</head>
+<body onload=fnts()>
+    <p id="p1" style="font-size:12pt;color: black; "> TEXT-GROWING </p>
+</body>
+</html>

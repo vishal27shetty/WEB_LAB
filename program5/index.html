@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam</title>
+    <script lang="javascript">
+        function exam(form) 
+        {
+            let i=0;
+            if(form.one[2].checked) i++;
+            if(form.three[0].checked) i++;
+            if(form.four[0].checked) i++;
+            if(form.five[1].checked) i++;
+            window.alert("Your score is"+i);
+        }
+    </script>
+</head>
+<body style="background-color: silver;">
+    <form onsubmit="exam(this)">
+    <h1 style="text-align: center;"> WELCOME TO ONLINE EXAM </h1>
+    <p>
+        <h1>1)Which is platform independent language</h1>
+       <input type="radio" name="one" value="c++">
+       <label>c++</label>
+       <input type="radio" name="one" value="c">
+       <label>c</label>
+       <input type="radio" name="one" value="java">
+       <label>java</label>
+       <input type="radio" name="one"value="basic">
+       <label>BASIC</label>
+        </p>
+        <p>
+            <h1>2) Which is class of all class in java</h1>
+            <input type="radio" name="three" value="object">
+            <label>Object</label>
+            <input type="radio" name="three" value="math">
+            <label>Math</label>
+            <input type="radio" name="three" value="system">
+            <label>System</label>
+            <input type="radio" name="three" value="graphic">
+            <label>Graphic</label> </p>
+             <p>
+            <h1>3)Frame package is in which package</h1>
+            <input type="radio" name="four" value="awt">
+            <label>AWT</label>
+            <input type="radio" name="four" value="applet">
+            <label>Applet</label>
+            <input type="radio" name="four" value="lang">
+            <label>Lang</label>
+            <input type="radio" name="four" value="swing">
+            <label>Swing</label>
+            </p>
+             <p>
+             <h1>4)Java does not support</h1>
+            <input type="radio" name="five" value="inheritance">
+            <label>Inheritance</label>
+            <input type="radio" name="five" value="multiple inheritance">
+            <label>Multilple inheritance</label>
+            <input type="radio" name="five" value="polymorphism">
+            <label>Polymorphism</label>
+            <input type="radio" name="five" value="encryption">
+            <label>Encryption</label>
+            </p>  
+            <p>
+                <input type="submit" value="Submit">
+                <input type ="reset" value="Reset">
+                </p> 
+    </body>
+</form>
+</body>
+</html>
