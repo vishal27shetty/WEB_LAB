@@ -1,0 +1,33 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-abstract-watercolor-background_23-2149012404.jpg");
+    background-size: cover;
+}
+
+header {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    text-align: center;
+   }
+   h2 {
+    font-size: 1.5em;
+    color: #0066cc;
+   }
+ a {
+    text-decoration: none;
+ }
+ a:hover {
+    text-decoration: underline;
+    color: aqua;
+ }
+
+ #education, #skills, #experience, #contact {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    background: rgba(255, 255, 255, 0.9);
+   }
+
+.custom-cursor {
+    cursor: url('cursor.png') ,auto;
+}
