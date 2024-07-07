@@ -8,9 +8,9 @@ fs.writeFile('example.txt','Hello World !', (err)=> {
         console.log('File content', data);
     });
 
-    fs.appendFile('example.txt','utf-8',(err,updatedData)=> {
+    fs.appendFile('example.txt','Hey Hey Hey',(err)=> {
         if (err) throw err;
-        console.log('Updated content are :', updatedData)
+        console.log('Updated contents')
     });
 
     fs.unlink('example.txt', (err)=> {
