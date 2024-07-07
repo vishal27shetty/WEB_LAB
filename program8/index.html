@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reg <form action=""></form></title>
+
+    <style>
+            .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="radio"] {
+            width: auto;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Course Registration Form</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Student Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="usn">USN:</label>
+                <input type="text" id="usn" name="usn" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="Male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="Female" required>
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="Other" required>
+                <label for="other">Other</label>
+            </div>
+            <div class="form-group">
+                <label for="course">Course to be Selected:</label>
+                <select id="course" name="course" required>
+                    <option value="Data Structures">Data Structures</option>
+                    <option value="Algorithms">Algorithms</option>
+                    <option value="Operating Systems">Operating Systems</option>
+                    <option value="Database Systems">Database Systems</option>
+                    <option value="Web Development">Web Development</option>
+                </select>
+            </div>
+            <button type="button" onclick="displayDetails()">Submit</button>
+        </form>
+
+            <div id="result" class="result" style="display: none;">
+            <h3>Registration Details</h3>
+            <p><strong>Student Name:</strong> 
+            <span id="displayName"></span></p>
+            <p><strong>USN:</strong> <span id="displayUsn"></span></p>
+            <p><strong>Phone Number:</strong> <span id="displayPhone"></span></p>
+            <p><strong>Email ID:</strong> <span id="displayEmail"></span></p>
+            <p><strong>Gender:</strong> <span id="displayGender"></span></p>
+            <p><strong>Course Selected:</strong> <span id="displayCourse"></span></p>
+        </div>
+        <script>
+            function displayDetails() {
+                const name = document.getElementById('name').value;
+                const usn = document.getElementById('usn').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+                const gender = document.querySelector('input[name="gender"]:checked').value;
+                const course = document.getElementById('course').value;
+
+
+                document.getElementById('displayName').innerText = name;
+                document.getElementById('displayUsn').innerText = usn;
+                document.getElementById('displayPhone').innerText= phone;
+                document.getElementById('displayEmail').innerText= email;
+                document.getElementById('displayGender').innerText= gender;
+                document.getElementById('displayCourse').innerText= course;
+
+                document.getElementById('result').style.display = 'block';
+
+            }
+        </script>
+    
+      
+        
+    </div>
+</body>
+</html>
