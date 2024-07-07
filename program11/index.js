@@ -4,9 +4,7 @@ const mysql = require('mysql');
     user:'root'
  });
   connection.connect((err)=>{
-    if(err) {
-        return console.error('Error connecting to the MySQL server',err);
-    }
+    if(err) throw err;
     console.log('Connected to MySQL server');
 
     connection.query('CREATE DATABASE IF NOT EXISTS school', (err,resul)=>{
