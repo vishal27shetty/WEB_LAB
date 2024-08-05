@@ -3,117 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>calculator</title>
+    <title>Simple Calculator</title>
     <style>
         body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-}	
-
-.calculator {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 300px;
-}
-
-.calculator-display {
-    background-color: #222;
-    color: #fff;
-    font-size: 2em;
-    padding: 10px;
-    text-align: right;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    height: 60px;
-}
-
-.btn {
-    background-color: #eee;
-    border: none;
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 1.5em;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.btn:hover {
-    background-color: #ddd;
-}
-
-.btn:active {
-    background-color: #ccc;
-}
-
-
-
-
-.calculator-buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-}
-
-
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .calculator {
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ccc;
+            background-color: #fff;
+            max-width: 250px;
+            width: 100%;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: right;
+            font-size: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+        .buttons button {
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #eee;
+            font-size: 16px;
+        }
+        .buttons button:hover {
+            background-color: #ddd;
+        }
     </style>
 </head>
 <body>
     <div class="calculator">
-        <div class="calculator-display" id="display">0</div>
-        <div class="calculator-buttons">
-            <button class="btn" onclick="clearDisplay()">C</button>
-            <button class="btn" onclick="deleteLast()">DEL</button>
-            <button class="btn" onclick="appendToDisplay('/')">/</button>
-            <button class="btn" onclick="appendToDisplay('*')">*</button>
-            <button class="btn" onclick="appendToDisplay('7')">7</button>
-            <button class="btn" onclick="appendToDisplay('8')">8</button>
-            <button class="btn" onclick="appendToDisplay('9')">9</button>
-            <button class="btn" onclick="appendToDisplay('-')">-</button>
-            <button class="btn" onclick="appendToDisplay('4')">4</button>
-            <button class="btn" onclick="appendToDisplay('5')">5</button>
-            <button class="btn" onclick="appendToDisplay('6')">6</button>
-            <button class="btn" onclick="appendToDisplay('+')">+</button>
-            <button class="btn" onclick="appendToDisplay('1')">1</button>
-            <button class="btn" onclick="appendToDisplay('2')">2</button>
-            <button class="btn" onclick="appendToDisplay('3')">3</button>
-            <button class="btn" onclick="calculateResult()">=</button>
-            <button class="btn" onclick="appendToDisplay('0')">0</button>
-            <button class="btn" onclick="appendToDisplay('.')">.</button>
-            
+        <input type="text" id="result" disabled>
+        <div class="buttons">
+            <button onclick="clearResult()">C</button>
+            <button onclick="deleteLast()">DEL</button>
+            <button onclick="appendToDisplay('/')">/</button>
+            <button onclick="appendToDisplay('*')">*</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('-')">-</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('+')">+</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="calculateResult()">=</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
         </div>
     </div>
     <script>
         function appendToDisplay(value) {
-            const display = document.getElementById('display');
-            if(display.innerText==='0') display.innerText = value;
-            else display.innerText+=value;
+            document.getElementById('result').value += value;
         }
-
-        function clearDisplay() {
-            document.getElementById('display').innerText=0;
+        function clearResult() {
+            document.getElementById('result').value = '';
         }
-
         function deleteLast() {
-            const display = document.getElementById('display');
-            display.innerText = display.innerText.slice(0,-1);
-            if(display.innerText==='') display.innerText=0;
+            const resultField = document.getElementById('result');
+            resultField.value = resultField.value.slice(0, -1);
         }
-
         function calculateResult() {
-            const display = document.getElementById('display');
-        try {
-            display.innerText = eval(display.innerText)
-        } catch{
-            display.innerText = "error";
-        }
-
+            const result = document.getElementById('result').value;
+            try {
+                document.getElementById('result').value = eval(result);
+            } catch {
+                document.getElementById('result').value = 'Error';
+            }
         }
     </script>
 </body>
