@@ -24,10 +24,15 @@
                     document.getElementById("p1").style.color = "blue";
                     document.getElementById("p1").innerHTML = "TEXT-SHRINKING";
                 }
-            } else {
+            }else {
                 ifs = ifs - 1;
-                if (ifs < 5) 
-                document.getElementById("p1").style.fontSize = ifs + "pt";
+                if (ifs >= 5) {
+                    document.getElementById("p1").style.fontSize = ifs + "pt";
+                } else {
+                    grow = true;
+                    document.getElementById("p1").style.color = "red";
+                    document.getElementById("p1").innerHTML = "TEXT-GROWING";
+                }
             }
             window.setTimeout(fntGS, 100, ifs);
         }
